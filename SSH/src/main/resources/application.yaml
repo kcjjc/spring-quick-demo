@@ -1,0 +1,18 @@
+server:
+  port: 8089
+
+spring:
+  datasource:
+    host: localhost
+    port: 3306
+    database: mysql_demo
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${spring.datasource.host}:${spring.datasource.port}/${spring.datasource.database}?serverTimezone=GMT%2b8
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: none
+      show-sql: true
+      format-sql: true
+      dialect: org.hibernate.dialect.MySQL8Dialect
