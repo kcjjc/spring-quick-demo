@@ -23,7 +23,7 @@ public class SysUserDTO implements Serializable {
     private Long userId;
     private String username;
     private String password;
-    private String nickname;
+    private String nickName;
     private String phone;
     private Long roleId;
     private String salt;
@@ -32,7 +32,7 @@ public class SysUserDTO implements Serializable {
     private String email;
     private Long deptId;
     private Long postId;
-    private String reamrk;
+    private String remark;
     private String status;
     private String createBy;
     private String updateBy;
