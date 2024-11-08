@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @Author: ckj
  * @CreateTime: 2024-11-08  14:28
- * @Description: TODO
+ * @Description: SysUser 的控制层
  * @Version: 1.0
  */
 @RestController

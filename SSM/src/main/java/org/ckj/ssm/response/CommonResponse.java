@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * @Author: ckj
  * @CreateTime: 2024-11-08  14:34
- * @Description: TODO
+ * @Description:通用返回类
  * @Version: 1.0
  */
 public class CommonResponse<T> implements Serializable {

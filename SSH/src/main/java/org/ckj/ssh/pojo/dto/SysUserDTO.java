@@ -12,7 +12,7 @@ import java.util.Date;
 /**
  * @Author: ckj
  * @CreateTime: 2024-11-08  10:36
- * @Description: TODO
+ * @Description: SysUserDTO类
  * @Version: 1.0
  */
 @Builder

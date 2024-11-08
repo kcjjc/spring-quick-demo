@@ -7,7 +7,7 @@ import org.ckj.ssm.pojo.entity.SysUser;
 /**
  * @Author: ckj
  * @CreateTime: 2024-11-08  14:22
- * @Description: TODO
+ * @Description: SysUser 的 mapper层
  * @Version: 1.0
  */
 @Mapper
