@@ -5,9 +5,12 @@ import org.ckj.ssh.exception.ParameterException;
 import org.ckj.ssh.pojo.dto.SysUserDTO;
 import org.ckj.ssh.response.CommonResponse;
 import org.ckj.ssh.service.SysUserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @Author: ckj
@@ -46,9 +49,9 @@ public class SysUserController {
      * @date: 2024/11/8 下午1:45
      * @param: [id]
      * @return: org.ckj.ssh.response.CommonResponse<org.ckj.ssh.pojo.dto.SysUserDTO>
-    **/
+     **/
     @GetMapping("info")
-    public CommonResponse<SysUserDTO> info(Integer id) {
+    public CommonResponse info(Integer id) {
         SysUserDTO sysUserDTO =null;
         try {
             sysUserDTO = sysUserService.info(id);
@@ -56,5 +59,25 @@ public class SysUserController {
             return CommonResponse.failure(e.getCode(),e.getMessage());
         }
         return CommonResponse.success("成功",sysUserDTO);
+    }
+
+    /**
+     * @description: 获取全部的用户信息
+     * @author: ckj
+     * @date: 2024/11/9 下午3:56
+     * @param: [pageable]
+     * @return: org.ckj.ssh.response.CommonResponse<java.util.List<org.ckj.ssh.pojo.dto.SysUserDTO>>
+    **/
+    @GetMapping("all")
+    public CommonResponse<List<SysUserDTO>> getAll(
+            @PageableDefault(size=10, direction = Sort.Direction.DESC, sort="created") Pageable pageable) {
+        List<SysUserDTO> sysUserDTOList =sysUserService.getAll(pageable);
+        return CommonResponse.success("成功",sysUserDTOList);
+    }
+
+    @PostMapping("register")
+    public CommonResponse register(@RequestBody SysUserDTO sysUserDTO) {
+        sysUserService.register(sysUserDTO);
+        return CommonResponse.success("注册成功");
     }
 }

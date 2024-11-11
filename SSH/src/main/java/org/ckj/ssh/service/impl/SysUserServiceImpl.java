@@ -7,11 +7,15 @@ import org.ckj.ssh.pojo.entity.SysUser;
 import org.ckj.ssh.repository.SysUserRepository;
 import org.ckj.ssh.service.SysUserService;
 import org.ckj.ssh.status.HttpStatus;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.*;
-import java.util.Optional;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.*;
 
 /**
  * @Author: ckj
@@ -93,5 +97,51 @@ public class SysUserServiceImpl implements SysUserService {
                     .build();
         }
         return null;
+    }
+
+    @Override
+    public List<SysUserDTO> getAll(Pageable pageable) {
+        Page<SysUser> content = sysUserRepository.findAll(pageable);
+        List<SysUser> all = content.getContent();
+        List<SysUserDTO> userDTOs = new ArrayList<>();
+        for (SysUser user : all) {
+            SysUserDTO userDTO = SysUserDTO.builder()
+                    .userId(user.getUserId())
+                    .username(user.getUsername())
+                    .password(user.getPassword())
+                    .nickName(user.getNickName())
+                    .phone(user.getPhone())
+                    .roleId(user.getRoleId())
+                    .salt(user.getSalt())
+                    .avatar(user.getAvatar())
+                    .sex(user.getSex())
+                    .email(user.getEmail())
+                    .deptId(user.getDeptId())
+                    .postId(user.getPostId())
+                    .remark(user.getRemark())
+                    .status(user.getStatus())
+                    .createBy(user.getCreateBy())
+                    .updateBy(user.getUpdateBy())
+                    .createdAt(user.getCreatedAt())
+                    .updatedAt(user.getUpdatedAt())
+                    .deletedAt(user.getDeletedAt())
+                    .build();
+           userDTOs.add(userDTO);
+        }
+        return userDTOs;
+    }
+
+    @Override
+    public void register(SysUserDTO sysUserDTO) {
+        SysUser sysUser = SysUser
+                .builder()
+                .username(sysUserDTO.getUsername())
+                .password(sysUserDTO.getPassword())
+                .nickName(sysUserDTO.getNickName())
+                .phone(sysUserDTO.getPhone())
+                .createdAt(new Date())
+                .updatedAt(new Date())
+                .build();
+        sysUserRepository.save(sysUser);
     }
 }
