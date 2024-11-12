@@ -29,11 +29,12 @@ public class SysUserController {
      * @description: 登录操作
      * @author: ckj
      * @date: 2024/11/8 上午11:34
-     * @param: [username, password]
+     * @param: [username 账户,
+     *          password 密码]
      * @return: org.ckj.ssh.response.CommonResponse
     **/
     @GetMapping("login")
-    public CommonResponse login(String username, String password){
+    public CommonResponse<String> login(String username, String password){
         boolean result = false;
         try {
             result = sysUserService.login(username, password);
@@ -51,7 +52,7 @@ public class SysUserController {
      * @return: org.ckj.ssh.response.CommonResponse<org.ckj.ssh.pojo.dto.SysUserDTO>
      **/
     @GetMapping("info")
-    public CommonResponse info(Integer id) {
+    public CommonResponse<SysUserDTO> info(Integer id) {
         SysUserDTO sysUserDTO =null;
         try {
             sysUserDTO = sysUserService.info(id);
@@ -70,13 +71,14 @@ public class SysUserController {
     **/
     @GetMapping("all")
     public CommonResponse<List<SysUserDTO>> getAll(
-            @PageableDefault(size=10, direction = Sort.Direction.DESC, sort="created") Pageable pageable) {
+            @PageableDefault(size=10, direction = Sort.Direction.DESC, sort="created") Pageable pageable
+    ) {
         List<SysUserDTO> sysUserDTOList =sysUserService.getAll(pageable);
         return CommonResponse.success("成功",sysUserDTOList);
     }
 
     @PostMapping("register")
-    public CommonResponse register(@RequestBody SysUserDTO sysUserDTO) {
+    public CommonResponse<String> register(@RequestBody SysUserDTO sysUserDTO) {
         sysUserService.register(sysUserDTO);
         return CommonResponse.success("注册成功");
     }

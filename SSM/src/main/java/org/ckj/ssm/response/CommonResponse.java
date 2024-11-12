@@ -42,8 +42,8 @@ public class CommonResponse<T> implements Serializable {
         this.data = data;
     }
 
-    public static CommonResponse success(String msg) {
-        CommonResponse response = new CommonResponse();
+    public static <T> CommonResponse<T> success(String msg) {
+        CommonResponse<T> response = new CommonResponse<>();
         response.setCode(200);
         response.setMsg(msg);
         return response;
@@ -57,15 +57,15 @@ public class CommonResponse<T> implements Serializable {
         return response;
     }
 
-    public static CommonResponse failure(String msg) {
-        CommonResponse response = new CommonResponse();
+    public static <T> CommonResponse<T> failure(String msg) {
+        CommonResponse<T> response = new CommonResponse<>();
         response.setCode(500);
         response.setMsg(msg);
         return response;
     }
 
-    public static CommonResponse failure(Integer code, String msg) {
-        CommonResponse response = new CommonResponse();
+    public static <T> CommonResponse<T> failure(Integer code, String msg) {
+        CommonResponse<T> response = new CommonResponse<>();
         response.setCode(code);
         response.setMsg(msg);
         return response;

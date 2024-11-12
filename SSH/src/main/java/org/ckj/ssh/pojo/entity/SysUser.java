@@ -20,6 +20,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "sys_user")
 public class SysUser {
 
     @Id

@@ -10,7 +10,8 @@ public interface SysUserService {
      * @description: 登录操作
      * @author: ckj
      * @date: 2024/11/8 上午11:34
-     * @param: [username, password]
+     * @param: [username 账户,
+     *          password 密码]
      * @return: boolean
     **/
     boolean login(String username, String password);
@@ -33,5 +34,12 @@ public interface SysUserService {
     **/
     List<SysUserDTO> getAll(Pageable pageable);
 
+    /**
+     * @description: 注册用户
+     * @author: ckj
+     * @date: 2024/11/12 上午10:19
+     * @param: [sysUserDTO]
+     * @return: void
+    **/
     void register(SysUserDTO sysUserDTO);
 }

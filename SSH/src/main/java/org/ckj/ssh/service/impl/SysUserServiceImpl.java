@@ -43,20 +43,14 @@ public class SysUserServiceImpl implements SysUserService {
         if (username.isEmpty() || password.isEmpty()) {
             throw new ParameterException(HttpStatus.PARAMETER_ERROR,"账密不正确");
         }
-        Specification<SysUser> spec = new Specification<SysUser>() {
-            @Override
-            public Predicate toPredicate(Root<SysUser> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-                //多条件查询
-                Path<Object> userName = root.get("username");
-                Path<Object> passWord = root.get("password");
-                return criteriaBuilder.and(criteriaBuilder.equal(userName, username), criteriaBuilder.equal(passWord, password));
-            }
+        Specification<SysUser> spec = (root, query, criteriaBuilder) -> {
+            //多条件查询
+            Path<Object> userName = root.get("username");
+            Path<Object> passWord = root.get("password");
+            return criteriaBuilder.and(criteriaBuilder.equal(userName, username), criteriaBuilder.equal(passWord, password));
         };
         Optional<SysUser> sysUserVO = sysUserRepository.findOne(spec);
-        if (sysUserVO.isPresent()) {
-            return true;
-        }
-        return false;
+        return sysUserVO.isPresent();
     }
 
     /**
@@ -99,6 +93,13 @@ public class SysUserServiceImpl implements SysUserService {
         return null;
     }
 
+    /**
+     * @description: 获取全部用户信息
+     * @author: ckj
+     * @date: 2024/11/12 上午11:07
+     * @param: [pageable]
+     * @return: java.util.List<org.ckj.ssh.pojo.dto.SysUserDTO>
+    **/
     @Override
     public List<SysUserDTO> getAll(Pageable pageable) {
         Page<SysUser> content = sysUserRepository.findAll(pageable);

@@ -24,7 +24,7 @@ public class SysUserServiceImpl implements SysUserService {
         QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("user_id", id);
         SysUser sysUser = sysUserMapper.selectOne(queryWrapper);
-        SysUserDTO sysUserDTO = SysUserDTO.builder()
+        return SysUserDTO.builder()
                 .userId(sysUser.getUserId())
                 .username(sysUser.getUsername())
                 .password(sysUser.getPassword())
@@ -45,6 +45,5 @@ public class SysUserServiceImpl implements SysUserService {
                 .updatedAt(sysUser.getUpdatedAt())
                 .deletedAt(sysUser.getDeletedAt())
                 .build();
-        return sysUserDTO;
     }
 }
