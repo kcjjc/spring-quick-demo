@@ -10,6 +10,7 @@
         <module name="springMq-Consumer" />
         <module name="SpringRedis" />
         <module name="springMQ" />
+        <module name="SpringWebsocket" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />

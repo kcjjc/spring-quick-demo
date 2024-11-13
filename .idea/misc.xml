@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/SpringRedis/pom.xml" />
         <option value="$PROJECT_DIR$/springMQ/pom.xml" />
         <option value="$PROJECT_DIR$/springMq-Consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringWebsocket/pom.xml" />
       </list>
     </option>
   </component>

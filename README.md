@@ -5,3 +5,4 @@
 ## 4. Spring-boot-redis整合
 ## 5. Spring-boot-swagger2整合
 ## 6. Spring-boot-RabbitMQ整合
+## 7. Spring-boot-websocket整合
