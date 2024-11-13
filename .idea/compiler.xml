@@ -7,7 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="springMq-Consumer" />
         <module name="SpringRedis" />
+        <module name="springMQ" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />

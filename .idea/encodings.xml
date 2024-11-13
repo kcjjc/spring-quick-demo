@@ -3,5 +3,9 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/SpringRedis/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SpringRedis/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springMQ/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springMQ/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springMq-Consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springMq-Consumer/src/main/resources" charset="UTF-8" />
   </component>
 </project>
