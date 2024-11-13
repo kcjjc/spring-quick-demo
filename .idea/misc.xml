@@ -3,6 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/SpringSecurity" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringSwagger" />
     <file type="web" url="file://$PROJECT_DIR$/SSH" />
     <file type="web" url="file://$PROJECT_DIR$/SSM" />
   </component>
@@ -10,6 +11,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/SpringRedis/pom.xml" />
+        <option value="$PROJECT_DIR$/springMQ/pom.xml" />
       </list>
     </option>
   </component>
