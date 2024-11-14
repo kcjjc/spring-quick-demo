@@ -27,7 +27,9 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
+        //请求前缀
         registry.setApplicationDestinationPrefixes("/app");
+        //客户端订阅路径前缀
         registry.enableSimpleBroker("/topic");
 //        registry.enableStompBrokerRelay("/topic")
 //                .setRelayHost("localhost")
